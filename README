@@ -5,3 +5,6 @@ framework.
 
 Where JSON support is available, it allows the user to store
 and retrieve complex objects or arrays using cookies.
+
+Please checkout the documentation (with examples) at:
+http://acornejo.github.com/cookiejar/
