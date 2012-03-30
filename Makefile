@@ -3,14 +3,16 @@ all: docs lib
 BUILD_DIR = build
 
 lib:
-	jshint src/cookiejar.js
 	mkdir -p ${BUILD_DIR}/lib
-	cp src/cookiejar.js ${BUILD_DIR}/lib/cookiejar.js
-	closure --js ${BUILD_DIR}/lib/cookiejar.js --js_output_file ${BUILD_DIR}/lib/cookiejar.min.js
+	jshint src/cookiebin.js
+	cp src/cookiebin.js ${BUILD_DIR}/lib/cookiebin.js
+	uglifyjs -nc src/cookiebin.js > ${BUILD_DIR}/lib/cookiebin.min.js
 
-docs:
+docs: lib
 	mkdir -p ${BUILD_DIR}/docs
-	jsdoc src/cookiejar.js -d=${BUILD_DIR}/docs
+	jsdoc src/cookiebin.js -d=${BUILD_DIR}/docs
 
 clean:
 	rm -fR build
+
+.PHONY: docs

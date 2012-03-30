@@ -1,4 +1,4 @@
-CookieJar is a small (2k minified) javascript library to store,
+CookieBin is a small (2k minified) javascript library to store,
 retrieve and delete cookies in the web browser. It is a stand alone
 library, but can be used in conjunction with any javascript
 framework.
@@ -7,4 +7,4 @@ Where JSON support is available, it allows the user to store
 and retrieve complex objects or arrays using cookies.
 
 Please checkout the documentation (with examples) at:
-http://acornejo.github.com/cookiejar/
+http://acornejo.github.com/cookiebin/

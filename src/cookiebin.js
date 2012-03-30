@@ -1,10 +1,10 @@
 /*jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, curly:true, browser:true, indent:2, maxerr:50 */
 
 /**
- * @namespace The CookieJar namespace holds the functionality to manage
+ * @namespace The CookieBin namespace holds the functionality to manage
  * cookies.
  *
- * <p>CookieJar is a small (2k minified) javascript library to store,
+ * <p>CookieBin is a small (2k minified) javascript library to store,
  * retrieve and delete cookies in the web browser. It is a stand alone
  * library, but can be used in conjunction with any javascript
  * framework.</p>
@@ -16,7 +16,7 @@
  * @version 1.0
  * @export
  */
-var CookieJar = (function () {
+var CookieBin = (function () {
   'use strict';
   var defaultOptions = {
       expires: null,
@@ -33,10 +33,10 @@ var CookieJar = (function () {
    * Stores a value inside a cookie.
    * 
    * <p>You can store strings, numbers, booleans, objects or arrays into
-   * cookies. When storing objects or arrays, CookieJar will internally
+   * cookies. When storing objects or arrays, CookieBin will internally
    * use JSON support (where available).</p>
    *
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @param {String} cookieName The name of the cookie to store.
    * @param {String} cookieValue The value to be stored under cookieName.
    * @param {Object} [options] The options to use for cookie storage (optional).
@@ -48,9 +48,9 @@ var CookieJar = (function () {
    * @param {Boolean} options.secure Limit the cookie access to encrypted connections.
    *
    * @example
-   * CookieJar.set('anumber',123);
-   * CookieJar.set('alist',[1,2,3]);
-   * CookieJar.set('user','alex',{path:'/login', persistent: true});
+   * CookieBin.set('anumber',123);
+   * CookieBin.set('alist',[1,2,3]);
+   * CookieBin.set('user','alex',{path:'/login', persistent: true});
    */
   function set(cookieName, cookieValue, options) {
     var value = '';
@@ -83,16 +83,16 @@ var CookieJar = (function () {
    * expression with the corresponding stored cookie value.</p>
    *
    * @public
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @param cookieName The name of the cookie to retrieve. If this is
    * the boolean true all cookies are returned. Alternatively if
    * this is a regular expression, then all cookies matching the regular
    * expression are returned.
    *
    * @example
-   * var singleCookie = CookieJar.get('singleCookie');
-   * var filteredCookies = CookieJar.get(/foo[1-9]+/);
-   * var allCookies = CookieJar.get(true);
+   * var singleCookie = CookieBin.get('singleCookie');
+   * var filteredCookies = CookieBin.get(/foo[1-9]+/);
+   * var allCookies = CookieBin.get(true);
    */
   function get(cookieName) {
     var cookies = {};
@@ -145,7 +145,7 @@ var CookieJar = (function () {
    * are deleted.</p>
    *
    * @public
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @param {String} cookieName The name of the cookie to delete. If
    * this is the boolean true all cookies are deleted. If this is a
    * regular expression, all cookies matching the expression are
@@ -155,10 +155,10 @@ var CookieJar = (function () {
    * @param {Object} options.domain The domain scope of the cookie.
    *
    * @example
-   * CookieJar.del('singleCookie');
-   * CookieJar.del(/foo[1-9]+/);
-   * CookieJar.del('username',{path:'/login'});
-   * CookieJar.del(true);
+   * CookieBin.del('singleCookie');
+   * CookieBin.del(/foo[1-9]+/);
+   * CookieBin.del('username',{path:'/login'});
+   * CookieBin.del(true);
    */
   function del(cookieName, options) {
     var expires = new Date();
@@ -193,11 +193,11 @@ var CookieJar = (function () {
    * value, and then retrieves it. If successful, the cookie is deleted
    * and returns true, otherwise it returns false.</p>
    *
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @returns {Boolean} Returns true if the browser accepts cookies, false otherwise.
    *
    * @example
-   * if (CookieJar.acceptCookies()) {
+   * if (CookieBin.acceptCookies()) {
    *    // Do something nifty with cookies
    * }
    */
@@ -284,7 +284,7 @@ var CookieJar = (function () {
    * <p>Any option present will override the default value.</p>
    *
    * @public
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @param {Object} options The options to use for cookie storage.
    * @param {Date} options.expires The expiration date.
    * @param {Number} options.maxage Store the cookie for 'maxage' seconds (overridden by 'expires').
@@ -294,10 +294,10 @@ var CookieJar = (function () {
    * @param {Boolean} options.secure Limit the cookie access to encrypted connections.
    *
    * @example
-   * CookieJar.setDefaultOptions({path: '/', domain: 'example.com', secure: true})
+   * CookieBin.setDefaultOptions({path: '/', domain: 'example.com', secure: true})
    * var expires = new Date();
    * expires.setFullYear(expires.getFullYear() - 1);
-   * CookieJar.setDefaultOptions({expires: expires})
+   * CookieBin.setDefaultOptions({expires: expires})
    */
   function setDefaultOptions(options) {
     defaultOptions = combineOptions(options);
@@ -310,7 +310,7 @@ var CookieJar = (function () {
    * option with its default value.</p>
    *
    * @public
-   * @memberOf CookieJar
+   * @memberOf CookieBin
    * @returns {Object} The default options for cookie storage.
    */
   function getDefaultOptions() {
